@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { AppBar, Box, Container, Toolbar, Typography } from "@mui/material";
 import "./globals.css";
+import Image from "next/image";
+import Link from "next/link";
+import { navLinkStatic } from "@/src/components/NavLink/navLinkHelpers";
+import NavLink from "@/src/components/NavLink/NavLink";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +21,41 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <AppBar position="static" sx={{ backgroundColor: "#fff", p: 2 }}>
+          <Container maxWidth="xl">
+            <Toolbar disableGutters>
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Link href={"/"}>
+                  <Image
+                    src="/kaldes-logo-orig.svg"
+                    alt="Kaldes Financial Logo"
+                    width={90}
+                    height={80}
+                    priority
+                  />
+                </Link>
+                <Box sx={{ display: "flex", gap: "2", alignItems: "center" }}>
+                  {navLinkStatic.map((link) => (
+                    <NavLink
+                      text={link.text}
+                      route={link.route}
+                      key={link.route}
+                    />
+                  ))}
+                </Box>
+              </Box>
+            </Toolbar>
+          </Container>
+        </AppBar>
+        {children}
+      </body>
     </html>
   );
 }
