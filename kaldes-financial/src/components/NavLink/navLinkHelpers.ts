@@ -1,14 +1,14 @@
 export interface NavLinkProps {
   text: string;
   route: string;
-  key: string;
+  keyText: string;
 }
 
 export const navLinkStatic: NavLinkProps[] = [
-  { text: "Why Use Kaldes?", route: "/about", key: "about" },
-  { text: "Partners", route: "/partners", key: "partners" },
-  { text: "Media", route: "/media", key: "media" },
-  { text: "Application Form", route: "/apply", key: "apply" },
-  { text: "Contact", route: "/contact", key: "contact" },
-  { text: "Lenders Click Here", route: "/lenders", key: "lenders" },
+  { text: "Why Use Kaldes?", route: "/about", keyText: "about" },
+  { text: "Partners", route: "/partners", keyText: "partners" },
+  { text: "Media", route: "/media", keyText: "media" },
+  { text: "Application Form", route: "/apply", keyText: "apply" },
+  { text: "Contact", route: "/contact", keyText: "contact" },
+  { text: "Lenders Click Here", route: "/lenders", keyText: "lenders" },
 ];
